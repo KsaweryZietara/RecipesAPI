@@ -34,7 +34,7 @@ namespace RecipesAPI.Api.Controllers{
 
         //POST api/user/getkey/
         [HttpPost("getkey")]
-        public async Task<ActionResult<string>> GetUserKeyAsync([FromBody] LoginDto loginDto){
+        public async Task<ActionResult> GetUserKeyAsync([FromBody] LoginDto loginDto){
             using var activity = _myActivitySource.StartActivity("GetUserKeyAsync");
 
             string? userKey = await _repo.GetUserKeyAsync(loginDto);
